@@ -1,0 +1,32 @@
+# FORMATTING GUIDE
+# %p will be replaced with the player name
+# %w will be replaced with the world name
+
+# JOIN MESSAGES
+
+join-message-enabled: true
+
+# List of messages that can be sent to a player when they log in
+join-message-list:
+  - "Welcome back to %w, %p!"
+  - "It's good to see you again in %w, %p!"
+
+# Text to show before every join message
+join-message-prefix: ""
+
+
+
+# WELCOME MESSAGES
+
+welcome-message-enabled: true
+
+# Whether the join message should not appear for new players
+# The welcome message will display instead, if there is one, but it is not required
+welcome-override: false
+
+# List of messages that can be sent to first-time players
+welcome-message-list:
+  - "Welcome to the server!"
+
+# Text to show before every welcome message
+welcome-message-prefix: ""
