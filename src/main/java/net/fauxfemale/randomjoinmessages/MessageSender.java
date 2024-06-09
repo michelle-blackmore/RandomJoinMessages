@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.List;
 import java.util.Random;
@@ -34,7 +35,20 @@ public class MessageSender implements Listener {
         }
     }
 
-    public void sendRandomMessage (MessageType type, Player player, FileConfiguration config) {
+    @EventHandler
+    public void onQuitEvent(PlayerQuitEvent e) {
+        FileConfiguration config = plugin.getConfig();
+
+        Player p = e.getPlayer();
+
+        boolean quitEnabled = config.getBoolean("leave-message-enabled");
+
+        if (quitEnabled) {
+            sendRandomMessage(MessageType.QUIT, p, config);
+        }
+    }
+
+    public void sendRandomMessage(MessageType type, Player player, FileConfiguration config) {
         String prefix = config.getString(type.string + "-message-prefix");
         List<String> messages = config.getStringList(type.string + "-message-list");
 
@@ -48,6 +62,7 @@ public class MessageSender implements Listener {
         message = ChatColor.translateAlternateColorCodes('&',
                 message);
 
-        player.sendMessage(message);
+//        player.sendMessage(message);
+        plugin.getServer().broadcastMessage(message);
     }
 }

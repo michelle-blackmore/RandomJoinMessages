@@ -2,11 +2,19 @@ name: RandomJoinMessages
 version: '${project.version}'
 main: net.fauxfemale.randomjoinmessages.RJMPlugin
 api-version: 1.19
-authors: [ Shelly B "FauxFemale" ]
-description: Allows you to create a list of random messages to show a player when they join
-website:
+authors: [ 'Shelly B "FauxFemale"' ]
+contributors: [ "flurbudurbur" ]
+description: ${project.description}
 
 commands:
   rjm:
     description: Reload and view version of RandomJoinMessages
     usage: /<command> [reload]
+    permission: randomjoinmessages.reload
+    aliases: [ 'randomjoinmessages', 'rjm' ]
+    permission-message: "You do not have permission to use this command."
+
+permissions:
+  randomjoinmessages.reload:
+    description: Allows the user to reload RandomJoinMessages
+    default: op

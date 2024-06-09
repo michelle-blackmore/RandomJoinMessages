@@ -14,7 +14,17 @@ join-message-list:
 # Text to show before every join message
 join-message-prefix: ""
 
+# LEAVE MESSAGES
 
+leave-message-enabled: true
+
+# List of messages that can be sent to a player when they log out
+leave-message-list:
+  - "Goodbye, %p! Come back soon!"
+  - "We'll miss you, %p! Have a great day!"
+
+# Text to show before every leave message
+leave-message-prefix: ""
 
 # WELCOME MESSAGES
 
